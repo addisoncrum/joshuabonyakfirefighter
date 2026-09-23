@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Answer the Call | First Responder Mental Health</title>
+<meta name="description" content="Companion site for the persuasive speech “Risk a Lot, to Save a Lot” by Joshua Bonyak, on the mental health crisis among firefighters and first responders.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<!--
+  ============================================================
+  HOW TO EDIT THIS SITE
+  ------------------------------------------------------------
+  Easiest: open this file in a web browser straight from your
+  computer. An "Edit page" button appears in the bottom corner.
+  Click it, type over any text, click a link to change where it
+  goes, then press "Save a copy" to download the updated file.
+
+  By hand: every page is a <section class="page"> below, marked
+  with a comment like  <!== PAGE: HOME ==>. Links, bill numbers
+  and the Congress letter template live in the CONFIG block near
+  the bottom of this file.
+
+  Tip: add ?edit to the end of the web address to turn on the
+  edit button when the site is hosted online.
+  ============================================================
+-->
+
+<style>
+:root{
+  --paper:#F3F4EF;
+  --ink:#1D262B;
+  --slate:#4A565C;
+  --line:#D5D8D0;
+  --turnout:#CDBE95;
+  --turnout-deep:#A89468;
+  --engine:#A8231B;
+  --engine-dark:#861A14;
+  --hivis:#D6E03C;
+  --silver:#BCC2C5;
+  --white:#FFFFFF;
+  --display:"Barlow Condensed","Arial Narrow","Roboto Condensed",Arial,sans-serif;
+  --body:"Public Sans","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  --measure:66ch;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:1.0625rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:var(--engine)}
+a:hover{color:var(--engine-dark)}
+:focus-visible{outline:3px solid var(--engine);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);line-height:1.02;margin:0;font-weight:700;letter-spacing:.005em}
+h2{font-size:clamp(2rem,4.2vw,2.9rem)}
+h3{font-size:1.65rem;font-weight:600}
+p{margin:0 0 1em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2.5rem)}
+.prose{max-width:var(--measure)}
+.muted{color:var(--slate)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- reflective trim: the site's signature element ---------- */
+.trim{
+  height:34px;position:relative;overflow:hidden;
+  background:linear-gradient(to bottom,
+    var(--hivis) 0 10px, var(--silver) 10px 24px, var(--hivis) 24px 34px);
+}
+.trim::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.85) 48%,transparent 62%);
+  transform:translateX(-100%);
+  animation:glint 1.6s .5s ease-out 1 forwards;
+}
+.trim--thin{height:17px;background:linear-gradient(to bottom,var(--hivis) 0 5px,var(--silver) 5px 12px,var(--hivis) 12px 17px)}
+.trim--thin::after{display:none}
+@keyframes glint{to{transform:translateX(100%)}}
+
+/* ---------- header / nav ---------- */
+.site-head{
+  position:sticky;top:0;z-index:20;background:var(--ink);color:var(--white);
+}
+.head-row{display:flex;align-items:center;gap:1.5rem;min-height:60px}
+.brand{
+  font-family:var(--display);font-weight:700;font-size:1.45rem;color:var(--white);
+  text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:.55rem;
+}
+.brand:hover{color:var(--hivis)}
+.brand svg{flex:none}
+.tabs{display:flex;gap:.25rem;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{
+  color:#DDE2E4;text-decoration:none;font-weight:600;font-size:.95rem;
+  padding:.55rem .85rem;border-radius:4px;white-space:nowrap;
+}
+.tabs a:hover{background:rgba(255,255,255,.08);color:var(--white)}
+.tabs a[aria-current="page"]{background:var(--hivis);color:var(--ink)}
+.crisis{background:var(--engine);color:var(--white);font-size:.9rem}
+.crisis .wrap{padding-top:.45rem;padding-bottom:.45rem}
+.crisis a{color:var(--white);font-weight:700}
+
+@media (max-width:760px){
+  .head-row{flex-wrap:wrap;gap:.25rem;padding:.5rem 0}
+  .tabs{margin-left:0;width:100%;padding-bottom:.25rem}
+}
+
+/* ---------- pages ---------- */
+.page{display:none}
+.page.is-active{display:block}
+section.block{padding:clamp(3rem,7vw,5.5rem) 0}
+.block + .block{border-top:1px solid var(--line)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font:600 1rem/1.2 var(--body);text-decoration:none;cursor:pointer;
+  padding:.8rem 1.25rem;border-radius:4px;border:2px solid transparent;
+}
+.btn-red{background:var(--engine);color:var(--white)}
+.btn-red:hover{background:var(--engine-dark);color:var(--white)}
+.btn-line{border-color:currentColor;color:var(--ink);background:transparent}
+.btn-line:hover{background:rgba(29,38,43,.06);color:var(--ink)}
+.btn-hivis{background:var(--hivis);color:var(--ink)}
+.btn-hivis:hover{background:#E4EC62;color:var(--ink)}
+.btn-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+
+/* ---------- hero ---------- */
+.hero{background:var(--turnout);position:relative}
+.hero .wrap{padding-top:clamp(3rem,8vw,6rem);padding-bottom:clamp(2.5rem,6vw,4.5rem)}
+.hero h1{font-size:clamp(3rem,8.5vw,6.2rem);max-width:13ch;line-height:.93}
+.hero .speech-line{font-size:1.1rem;margin:1.5rem 0 0;max-width:52ch}
+.hero .speech-line cite{font-style:normal;font-weight:700}
+
+/* ---------- the call (opening story) ---------- */
+.call-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.deal{
+  font-family:var(--display);font-weight:700;font-size:clamp(4rem,11vw,8.5rem);line-height:.9;
+  margin:0;color:var(--ink);
+}
+.deal-cap{margin-top:1rem;color:var(--slate);font-size:.95rem;max-width:34ch}
+@media (max-width:760px){.call-grid{grid-template-columns:1fr}}
+
+/* ---------- risk comparison bars ---------- */
+.risk{margin-top:2.25rem;max-width:760px}
+.risk-row{display:grid;grid-template-columns:minmax(150px,210px) 1fr;gap:1rem;align-items:center;padding:.9rem 0;border-top:1px solid var(--line)}
+.risk-row:last-of-type{border-bottom:1px solid var(--line)}
+.risk-label{font-weight:600;line-height:1.3}
+.bars{display:grid;gap:5px}
+.bar{height:22px;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:.5rem;font-size:.82rem;font-weight:700;white-space:nowrap}
+.bar--public{background:var(--silver);color:var(--ink)}
+.bar--ff{background:var(--engine);color:var(--white)}
+.legend{display:flex;gap:1.5rem;flex-wrap:wrap;font-size:.9rem;color:var(--slate);margin-top:1rem}
+.legend span::before{content:"";display:inline-block;width:.9em;height:.9em;margin-right:.4em;vertical-align:-.1em;border-radius:2px}
+.legend .l-public::before{background:var(--silver)}
+.legend .l-ff::before{background:var(--engine)}
+@media (max-width:560px){.risk-row{grid-template-columns:1fr;gap:.4rem}}
+
+/* ---------- problems / causes (two-part sections) ---------- */
+.split{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:clamp(1.5rem,5vw,4rem)}
+.split-head{position:sticky;top:120px;align-self:start}
+.split-head p{margin-top:1rem;color:var(--slate)}
+.point{padding:0 0 2.25rem;margin:0 0 2.25rem;border-bottom:1px solid var(--line)}
+.point:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.point h3{margin-bottom:.9rem}
+.point .order{font-family:var(--display);font-weight:600;color:var(--engine);font-size:1.1rem;display:block;margin-bottom:.2rem}
+.figure{display:flex;gap:1rem;align-items:baseline;margin:1.25rem 0;padding:1rem 1.2rem;background:var(--white);border-left:6px solid var(--engine)}
+.figure strong{font-family:var(--display);font-size:2.8rem;line-height:1;font-weight:700;flex:none}
+.figure span{font-size:.97rem;line-height:1.45}
+.pull{font-size:1.25rem;line-height:1.45;border-left:6px solid var(--turnout-deep);padding-left:1.1rem;margin:1.25rem 0;font-style:italic}
+.pull footer{font-style:normal;font-size:.9rem;color:var(--slate);margin-top:.4rem}
+@media (max-width:820px){.split{grid-template-columns:1fr}.split-head{position:static}}
+
+/* ---------- solutions ---------- */
+.solutions{background:var(--ink);color:#E9ECEC}
+.solutions h2,.solutions h3{color:var(--white)}
+.solutions .intro{max-width:60ch;margin-top:1rem;color:#C9D0D2}
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);margin-top:2.75rem}
+.sol{border-top:6px solid var(--hivis);padding-top:1.4rem}
+.sol .order{font-family:var(--display);font-weight:600;color:var(--hivis);font-size:1.1rem;display:block;margin-bottom:.2rem}
+.sol h3{font-size:1.9rem;margin-bottom:.9rem}
+.sol ul{padding-left:1.2rem;margin:0 0 1rem}
+.sol li{margin-bottom:.35rem}
+.solutions .btn-line{color:var(--white)}
+.solutions .btn-line:hover{background:rgba(255,255,255,.08);color:var(--white)}
+.solutions a:not(.btn){color:var(--hivis)}
+@media (max-width:760px){.sol-grid{grid-template-columns:1fr}}
+
+/* ---------- closing ---------- */
+.closing{background:var(--turnout)}
+.closing blockquote{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;max-width:20ch}
+.closing p{margin-top:1.2rem}
+
+/* ---------- works cited ---------- */
+details.cited summary{cursor:pointer;font-weight:700;font-size:1.05rem;padding:.4rem 0}
+details.cited ol{padding-left:1.2rem;font-size:.92rem;color:var(--slate)}
+details.cited li{margin-bottom:.7rem;overflow-wrap:anywhere}
+
+/* ---------- inner page header ---------- */
+.page-head{background:var(--turnout)}
+.page-head .wrap{padding-top:clamp(2.5rem,6vw,4rem);padding-bottom:clamp(2rem,5vw,3rem)}
+.page-head h1{font-size:clamp(2.6rem,6.5vw,4.6rem)}
+.page-head p{max-width:60ch;margin:1rem 0 0;font-size:1.1rem}
+
+/* ---------- write to congress ---------- */
+.steps{list-style:none;padding:0;margin:0 0 2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;counter-reset:step}
+.steps li{counter-increment:step;padding:1rem 1.1rem;background:var(--white);border-top:4px solid var(--ink);font-size:.95rem;line-height:1.45}
+.steps li::before{content:counter(step);display:block;font-family:var(--display);font-weight:700;font-size:2rem;line-height:1;color:var(--engine);margin-bottom:.35rem}
+.steps strong{display:block;margin-bottom:.15rem}
+@media (max-width:700px){.steps{grid-template-columns:1fr}}
+
+.composer{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+@media (max-width:860px){.composer{grid-template-columns:1fr}}
+.field{margin-bottom:1.05rem}
+.field label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+.field .hint{font-size:.85rem;color:var(--slate);margin-top:.25rem}
+.field input,.field select,.field textarea{
+  width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--white);
+  border:1.5px solid #AEB4AC;border-radius:4px;padding:.6rem .7rem;
+}
+.field textarea{resize:vertical;min-height:96px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--hivis);outline-offset:0;border-color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+
+.letter-wrap{background:var(--white);border:1px solid var(--line);box-shadow:0 1px 0 var(--line)}
+.letter-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:.7rem 1rem;border-bottom:1px solid var(--line);font-size:.9rem;color:var(--slate)}
+.letter-bar b{color:var(--ink)}
+#letter{
+  display:block;width:100%;min-height:560px;border:0;resize:vertical;padding:1.4rem 1.5rem;
+  font:1rem/1.65 var(--body);color:var(--ink);background:var(--white);
+}
+#letter:focus{outline:3px solid var(--hivis);outline-offset:-3px}
+.letter-actions{padding:1rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.6rem}
+.status{min-height:1.5em;font-weight:600;padding:0 1rem 1rem;margin:0}
+.status.ok{color:#2F6B2A}
+.status.warn{color:var(--engine)}
+.linkish{background:none;border:0;padding:0;font:inherit;color:var(--engine);text-decoration:underline;cursor:pointer}
+
+.send-to{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.send-to a{display:block;padding:1.2rem 1.3rem;background:var(--ink);color:var(--white);text-decoration:none;border-bottom:5px solid var(--hivis)}
+.send-to a:hover{background:#2A363C;color:var(--white)}
+.send-to b{display:block;font-family:var(--display);font-size:1.5rem;font-weight:700;line-height:1.1}
+.send-to span{font-size:.92rem;color:#C9D0D2}
+@media (max-width:640px){.send-to{grid-template-columns:1fr}}
+
+/* ---------- get help ---------- */
+.now{background:var(--white);border:3px solid var(--engine);padding:1.5rem 1.6rem;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center}
+.now .num{font-family:var(--display);font-weight:700;font-size:clamp(3.5rem,9vw,5.5rem);line-height:.85;color:var(--engine)}
+.now h2{font-size:1.9rem;margin-bottom:.4rem}
+.now p{margin:0}
+@media (max-width:560px){.now{grid-template-columns:1fr;gap:.75rem}}
+
+.org{display:grid;grid-template-columns:minmax(200px,280px) 1fr;gap:clamp(1rem,4vw,3rem);padding:2.25rem 0;border-top:1px solid var(--line)}
+.org:last-of-type{border-bottom:1px solid var(--line)}
+.org h3{font-size:1.9rem}
+.org .who{font-size:.9rem;color:var(--slate);margin-top:.5rem}
+.org .btn-row{margin-top:1rem}
+@media (max-width:720px){.org{grid-template-columns:1fr}}
+.note{background:#E7E9E1;padding:1.1rem 1.3rem;border-left:6px solid var(--turnout-deep);max-width:var(--measure);font-size:.97rem}
+
+/* ---------- the bill ---------- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;border-top:3px solid var(--ink);margin-bottom:2.5rem}
+.facts div{padding:1rem 1.1rem 1rem 0;border-bottom:1px solid var(--line)}
+.facts dt{font-size:.85rem;color:var(--slate);font-weight:600}
+.facts dd{margin:.2rem 0 0;font-weight:600;line-height:1.35}
+.uses{counter-reset:use;list-style:none;padding:0;margin:1.25rem 0 0;max-width:var(--measure)}
+.uses li{padding:.65rem 0 .65rem 2.4rem;position:relative;border-top:1px solid var(--line)}
+.uses li:last-child{border-bottom:1px solid var(--line)}
+.uses li::before{counter-increment:use;content:"(" counter(use) ")";position:absolute;left:0;font-weight:700;color:var(--engine)}
+
+.billtext{
+  background:var(--white);border:1px solid var(--line);margin-top:1.5rem;
+  padding:clamp(1.4rem,5vw,3.2rem);max-width:820px;
+  font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;line-height:1.75;
+}
+.billtext .cap{text-align:center;margin:0}
+.billtext .num{text-align:center;font-weight:700;font-size:1.35rem;margin:.6rem 0}
+.billtext .title{text-align:center;font-style:italic;max-width:48ch;margin:0 auto 1.4rem}
+.billtext hr{border:0;border-top:1px solid var(--ink);margin:1.4rem 0}
+.billtext .house{text-align:center;font-variant:small-caps;letter-spacing:.04em;margin:0}
+.billtext .date{text-align:center;margin:.3rem 0 1rem}
+.billtext .a-bill{text-align:center;font-weight:700;letter-spacing:.2em;margin:1.4rem 0 .5rem}
+.billtext .sec{font-weight:700;margin:1.6rem 0 .6rem}
+.billtext .i1{padding-left:1.5em}
+.billtext .i2{padding-left:3em}
+.billtext .i3{padding-left:4.5em}
+.billtext p{margin:0 0 .7em}
+@media (max-width:560px){.billtext .i2{padding-left:1.8em}.billtext .i3{padding-left:2.6em}}
+
+/* ---------- footer ---------- */
+.site-foot{background:var(--ink);color:#C9D0D2;font-size:.92rem}
+.site-foot .wrap{padding-top:2rem;padding-bottom:2.25rem;display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between}
+.site-foot a{color:var(--hivis)}
+.site-foot p{margin:0}
+
+/* ---------- edit mode ---------- */
+.edit-launch{
+  position:fixed;right:1rem;bottom:1rem;z-index:40;display:none;
+  background:var(--ink);color:var(--white);border:2px solid var(--hivis);
+  font:600 .9rem var(--body);padding:.6rem 1rem;border-radius:4px;cursor:pointer;
+}
+.can-edit .edit-launch{display:block}
+.editing .edit-launch{display:none}
+.edit-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;
+  background:var(--hivis);color:var(--ink);font-size:.95rem;
+  box-shadow:0 -2px 0 var(--ink);
+}
+.editing .edit-bar{display:block}
+.edit-bar .wrap{display:flex;gap:.75rem 1.25rem;align-items:center;flex-wrap:wrap;padding-top:.7rem;padding-bottom:.7rem}
+.edit-bar p{margin:0;flex:1 1 320px}
+.edit-bar button{font:600 .95rem var(--body);padding:.55rem 1rem;border-radius:4px;cursor:pointer;border:2px solid var(--ink)}
+.edit-bar .save{background:var(--ink);color:var(--white)}
+.edit-bar .done{background:transparent;color:var(--ink)}
+.editing [contenteditable="true"]{outline:1px dashed rgba(29,38,43,.35);outline-offset:4px}
+.editing [contenteditable="true"]:focus{outline:2px solid var(--engine)}
+.editing main{padding-bottom:5rem}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .trim::after{animation:none}
+}
+@media print{
+  .site-head,.crisis,.edit-launch,.edit-bar,.btn-row,.letter-actions{display:none!important}
+  .page{display:block!important}
+}
+</style>
+</head>
+
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="#home" data-nav>
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="0" y="4" width="26" height="5" fill="#D6E03C"/><rect x="0" y="10.5" width="26" height="5" fill="#BCC2C5"/><rect x="0" y="17" width="26" height="5" fill="#D6E03C"/></svg>
+      Answer the Call
+    </a>
+    <nav class="tabs" aria-label="Site pages">
+      <a href="#home" data-nav>Home</a>
+      <a href="#action" data-nav>Write to Congress</a>
+      <a href="#help" data-nav>Get help</a>
+      <a href="#bill" data-nav>The bill</a>
+    </nav>
+  </div>
+  <div class="crisis">
+    <div class="wrap">In crisis or thinking about suicide? Call or text <a href="tel:988">988</a>, or text HOME to <a href="sms:741741">741741</a>. Free, 24/7.</div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= PAGE: HOME ================= -->
+<section class="page" id="page-home" data-page="home">
+
+  <div class="hero">
+    <div class="wrap">
+      <h1 data-edit>Saving lives shouldn’t cost them their own.</h1>
+      <p class="speech-line" data-edit>A companion site to <cite>“Risk a Lot, to Save a Lot,”</cite> a persuasive speech by Joshua Bonyak, firefighter and speech &amp; debate competitor, 2026–2027 season.</p>
+      <div class="btn-row">
+        <a class="btn btn-red" href="#action" data-nav>Write to Congress</a>
+        <a class="btn btn-line" href="#help" data-nav>Find support for responders</a>
+      </div>
+    </div>
+    <div class="trim" aria-hidden="true"></div>
+  </div>
+
+  <!-- The opening story -->
+  <section class="block">
+    <div class="wrap call-grid">
+      <div data-edit>
+        <h2>The call that didn’t end</h2>
+        <p style="margin-top:1rem">On a Wednesday night, a critical alert comes in for a suicide attempt. There’s no time to stop for gear, so Joshua races there in his pajamas, lights and sirens on. Inside the house, a father clings to him, sobbing, asking if he knew his son.</p>
+        <p>After the call, Joshua asks his lieutenant if they can talk. The answer is two words. Then the lieutenant walks away.</p>
+      </div>
+      <div>
+        <p class="deal" data-edit>“Deal with it.”</p>
+        <p class="deal-cap" data-edit>For too many firefighters, EMTs, and dispatchers, that is still the only mental health plan they get.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The numbers -->
+  <section class="block" style="padding-top:0;border-top:0">
+    <div class="wrap">
+      <div class="prose" data-edit>
+        <h2>The risk, side by side</h2>
+        <p style="margin-top:1rem">The U.S. has roughly 4.6 million first responders. Compared with the general public, firefighters face far higher rates of suicidal thoughts and behavior.</p>
+      </div>
+      <div class="risk" role="img" aria-label="Firefighters are 1.33 times as likely as the general public to experience suicidal ideation, 4 times as likely to have suicide plans, and more than 3 times as likely to attempt suicide.">
+        <div class="risk-row">
+          <div class="risk-label">Suicidal thoughts</div>
+          <div class="bars"><div class="bar bar--public" style="width:25%">1×</div><div class="bar bar--ff" style="width:33.3%">1.33×</div></div>
+        </div>
+        <div class="risk-row">
+          <div class="risk-label">Suicide plans</div>
+          <div class="bars"><div class="bar bar--public" style="width:25%">1×</div><div class="bar bar--ff" style="width:100%">4×</div></div>
+        </div>
+        <div class="risk-row">
+          <div class="risk-label">Suicide attempts</div>
+          <div class="bars"><div class="bar bar--public" style="width:25%">1×</div><div class="bar bar--ff" style="width:78%">3×+</div></div>
+        </div>
+      </div>
+      <div class="legend"><span class="l-public">General public</span><span class="l-ff">Firefighters</span></div>
+      <p class="muted" style="font-size:.88rem;margin-top:.75rem" data-edit>Sources: Stanley et al., <i>Journal of Affective Disorders</i> (2015); U.S. Cybersecurity and Infrastructure Security Agency (Aug. 28, 2025).</p>
+    </div>
+  </section>
+
+  <!-- The problem -->
+  <section class="block">
+    <div class="wrap split">
+      <div class="split-head" data-edit>
+        <h2>The problem</h2>
+        <p>Trauma from the job doesn’t stay at the scene. It becomes illness, and it follows responders home.</p>
+      </div>
+      <div>
+        <article class="point prose" data-edit>
+          <span class="order">First</span>
+          <h3>Serious mental health conditions</h3>
+          <p>After responding to a Halloween car crash that killed children, firefighter and EMT Cory Thayer couldn’t leave the call behind. It replayed in his mind, kept him awake, and piled on top of years of bottled-up pain until he was diagnosed with depression and PTSD.</p>
+          <div class="figure"><strong>14.3%</strong><span>of first responders facing routine job trauma have PTSD, according to a July 2025 <i>Clinical Psychology Review</i> meta-analysis of 138 studies.</span></div>
+          <p>First responder mental health specialist Tammy Damron reports working with responders struggling with anxiety, sleep disturbance, mood disorders, unhealthy coping, and thoughts of self-harm. The people trained to stay calm in our worst moments carry those moments home.</p>
+        </article>
+        <article class="point prose" data-edit>
+          <span class="order">Second</span>
+          <h3>Suffering that spills over</h3>
+          <div class="figure"><strong>676</strong><span>U.S. first responders died by suicide over a three-year period. Only 25% of them had received mental health or substance use treatment (UTHealth Houston, April 2025).</span></div>
+          <p>The damage reaches families too. A 2024 study of 200 married or cohabiting firefighters linked relationship dissatisfaction to significantly higher PTSD, depression, anxiety, and alcohol use. Through the Fire Family Collective, a firefighter’s wife named Heather describes supporting her husband after his suicide attempt while caring for their three children through anxiety, stress-related illness, and financial uncertainty.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- The causes -->
+  <section class="block">
+    <div class="wrap split">
+      <div class="split-head" data-edit>
+        <h2>Why it happens</h2>
+        <p>911 dispatcher Ty Wooten pushed down a traumatic call early in his career. Years later it resurfaced as anxiety, panic attacks, and depression. His story points to two causes.</p>
+      </div>
+      <div>
+        <article class="point prose" data-edit>
+          <span class="order">First</span>
+          <h3>A culture that rewards silence</h3>
+          <p>Responders are trained to stay in control during emergencies. That control becomes dangerous when it never switches off after the call ends.</p>
+          <blockquote class="pull">Public safety has been “raised in a culture that equates silence with strength and vulnerability with weakness.”<footer>Jason Fox, paramedic, <i>EMS World</i> (2025)</footer></blockquote>
+          <p>When strength means silence, responders who know something is wrong may still believe asking for help makes them weak, unreliable, or unfit for the job.</p>
+        </article>
+        <article class="point prose" data-edit>
+          <span class="order">Second</span>
+          <h3>Too few providers who understand the job</h3>
+          <p>A 2024 U.S. Fire Administration report warns that fire and EMS personnel often face mental health provider shortages. Even where providers exist, many lack the training to understand public safety work.</p>
+          <p>So when responders finally reach out, too many find nowhere to go, or help that doesn’t understand what they do.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- The solutions -->
+  <section class="block solutions">
+    <div class="wrap">
+      <div data-edit>
+        <h2>What we can do</h2>
+        <p class="intro">Change starts when a community decides that support is part of the job. We can make that shift two ways.</p>
+      </div>
+      <div class="sol-grid">
+        <article class="sol">
+          <div data-edit>
+            <span class="order">First</span>
+            <h3>Pass the Lifeline for First Responders Act</h3>
+            <p>This bipartisan bill would create the first federal grant program dedicated to first responder mental health. Fire departments that provide EMS, EMS agencies, and 911 dispatch centers could use it for:</p>
+            <ul>
+              <li>suicide prevention and confidential counseling</li>
+              <li>peer support and stress reduction</li>
+              <li>services for spouses and children</li>
+              <li>training that reduces stigma</li>
+            </ul>
+            <p>It would especially help volunteer, rural, and underfunded departments build support they can’t create alone.</p>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-hivis" href="#action" data-nav>Write to Congress</a>
+            <a class="btn btn-line" href="#bill" data-nav>Read the bill</a>
+          </div>
+        </article>
+        <article class="sol">
+          <div data-edit>
+            <span class="order">Second</span>
+            <h3>Bring proven organizations into departments</h3>
+            <p>Nonprofits are already doing this work. The <strong>Firefighter Behavioral Health Alliance</strong> runs behavioral health workshops for fire, EMS, and dispatch organizations, with a focus on suicide prevention and support for families. <strong>ResponderStrong</strong> offers responder-focused resources, programs, and support.</p>
+            <p>Share these groups with your fire board, city leaders, or county officials, and push for training before the next crisis.</p>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-hivis" href="#help" data-nav>See the resources</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <div class="trim trim--thin" aria-hidden="true"></div>
+
+  <!-- Closing -->
+  <section class="block closing">
+    <div class="wrap">
+      <blockquote data-edit>They risk their lives answering the call for us. It’s time we answer the call for them.</blockquote>
+      <p class="prose" data-edit>The next time a first responder answers someone else’s worst moment, they shouldn’t have to hold it in and “suck it up.” They should know they don’t have to.</p>
+      <div class="btn-row"><a class="btn btn-red" href="#action" data-nav>Send your note to Congress</a></div>
+    </div>
+  </section>
+
+  <!-- Works cited -->
+  <section class="block">
+    <div class="wrap">
+      <details class="cited">
+        <summary>Works cited</summary>
+        <ol data-edit>
+          <li>Arena, A. F., Gregory, M., Collins, D. A. J., Vilus, B., Bryant, R., Harvey, S. B., &amp; Deady, M. (2025). Global PTSD prevalence among active first responders and trends over recent years: A systematic review and meta-analysis. <i>Clinical Psychology Review, 120</i>, 102622. <a href="https://doi.org/10.1016/j.cpr.2025.102622" target="_blank" rel="noopener">https://doi.org/10.1016/j.cpr.2025.102622</a></li>
+          <li>Damron, T. (2026, August). Interview by Joshua Bonyak about first responder mental health [Personal interview].</li>
+          <li>Firefighter Behavioral Health Alliance. (n.d.). Remembering our brothers and sisters. <a href="https://www.ffbha.org" target="_blank" rel="noopener">https://www.ffbha.org</a></li>
+          <li>Flores-Thorpe, S., Zhang, Y., Handler, K., Brand, K., Menendez, T., van den Berg, A. E., &amp; Hoelscher, D. M. (2025, April 8). <i>Mental health conditions in first responders.</i> UTHealth Houston School of Public Health. <a href="https://sph.uth.edu/research/centers/dell/legislative-initiatives/docs/Mental%20Health%20Conditions%20in%20First%20Responders_April%202025.pdf" target="_blank" rel="noopener">Link</a></li>
+          <li>Fox, J. (2025, August 4). Breaking the stigma: Changing the culture of silence. <i>EMS World.</i> <a href="https://www.hmpgloballearningnetwork.com/site/emsworld/feature-story/breaking-stigma-changing-culture-silence" target="_blank" rel="noopener">Link</a></li>
+          <li>ResponderStrong. (n.d.). ResponderStrong. <a href="https://www.responderstrong.org" target="_blank" rel="noopener">https://www.responderstrong.org</a></li>
+          <li>Stanley, I. H., Hom, M. A., Hagan, C. R., &amp; Joiner, T. E. (2015). Career prevalence and correlates of suicidal thoughts and behaviors among firefighters. <i>Journal of Affective Disorders, 187</i>, 163–171. <a href="https://doi.org/10.1016/j.jad.2015.08.007" target="_blank" rel="noopener">https://doi.org/10.1016/j.jad.2015.08.007</a></li>
+          <li>Thayer, C. (2025, January 12). Navigating PTSD as a first responder: Cory’s story. HeadsUpGuys. <a href="https://headsupguys.org/your-stories-firefighter-ptsd-cory/" target="_blank" rel="noopener">Link</a></li>
+          <li>U.S. Congress. (2026). H.R. 10116: Lifeline for First Responders Act. 119th Congress. <a href="https://www.congress.gov/bill/119th-congress/house-bill/10116" target="_blank" rel="noopener">https://www.congress.gov/bill/119th-congress/house-bill/10116</a></li>
+          <li>U.S. Fire Administration. (2024). <i>Fire service mental health and wellbeing.</i> FEMA. <a href="https://www.usfa.fema.gov/downloads/pdf/publications/fire-service-mental-health-wellbeing.pdf" target="_blank" rel="noopener">Link</a></li>
+          <li>Ventura Fire Foundation. (2026, March 17). One family’s journey through PTSD and healing. Fire Family Collective. <a href="https://www.firefamilycollective.org/journal/one-familys-journey-through-ptsd-and-healing" target="_blank" rel="noopener">Link</a></li>
+          <li>Watford, A. (2026, May 5). When the helpers ‘feel helpless’: First responders get a boost in mental health support. <i>Stateline.</i> <a href="https://stateline.org/2026/05/05/when-the-helpers-feel-helpless-first-responders-get-a-boost-in-mental-health-support/" target="_blank" rel="noopener">Link</a></li>
+          <li>Zegel, M., Leonard, S. J., McGrew, S. J., &amp; Vujanovic, A. A. (2024). Firefighter relationship satisfaction: Associations with mental health outcomes. <i>American Journal of Family Therapy, 52</i>(4), 404–417. <a href="https://doi.org/10.1080/01926187.2023.2209338" target="_blank" rel="noopener">https://doi.org/10.1080/01926187.2023.2209338</a></li>
+        </ol>
+      </details>
+    </div>
+  </section>
+</section>
+
+<!-- ================= PAGE: WRITE TO CONGRESS ================= -->
+<section class="page" id="page-action" data-page="action">
+  <div class="page-head">
+    <div class="wrap" data-edit>
+      <h1>Write to Congress</h1>
+      <p>Ask your representative and senators to cosponsor the Lifeline for First Responders Act. It takes about three minutes, and offices do count every message from constituents.</p>
+    </div>
+    <div class="trim trim--thin" aria-hidden="true"></div>
+  </div>
+
+  <section class="block" style="padding-top:2.5rem">
+    <div class="wrap">
+      <ol class="steps">
+        <li><strong>Fill in your details</strong>Your note builds itself as you type. Change any wording you like.</li>
+        <li><strong>Copy your note</strong>Use the copy button, or open it in your email app.</li>
+        <li><strong>Paste it into their contact form</strong>Members of Congress take messages through forms on their websites. Find yours below.</li>
+      </ol>
+
+      <div class="composer">
+        <form id="letter-form" autocomplete="on" onsubmit="return false">
+          <div class="field">
+            <label for="f-chamber">Who are you writing to?</label>
+            <select id="f-chamber">
+              <option value="house">My U.S. Representative</option>
+              <option value="senate">My U.S. Senator</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-member">Their last name <span class="muted">(optional)</span></label>
+            <input id="f-member" type="text" placeholder="e.g. Smith">
+          </div>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" type="text" autocomplete="name">
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="f-city">City and state</label>
+              <input id="f-city" type="text" placeholder="Huntington, WV">
+            </div>
+            <div class="field">
+              <label for="f-zip">ZIP code</label>
+              <input id="f-zip" type="text" inputmode="numeric" maxlength="10" autocomplete="postal-code">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-role">I’m writing as</label>
+            <select id="f-role">
+              <option value="constituent">a constituent</option>
+              <option value="student">a student</option>
+              <option value="firefighter">a firefighter</option>
+              <option value="ems">an EMT or paramedic</option>
+              <option value="dispatch">a 911 dispatcher</option>
+              <option value="family">a family member of a first responder</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-story">Why this matters to you <span class="muted">(optional)</span></label>
+            <textarea id="f-story" placeholder="A sentence or two in your own words. Personal notes get the most attention."></textarea>
+            <p class="hint">Don’t include anything you wouldn’t want a congressional staffer to read.</p>
+          </div>
+        </form>
+
+        <div class="letter-wrap">
+          <div class="letter-bar">
+            <span><b>Your note</b> &nbsp;You can edit it directly.</span>
+            <button type="button" class="linkish" id="rebuild" hidden>Rebuild from the form</button>
+          </div>
+          <label for="letter" class="sr-only">Your note to Congress</label>
+          <textarea id="letter" spellcheck="true"></textarea>
+          <div class="letter-actions">
+            <button type="button" class="btn btn-red" id="copy-btn">Copy note</button>
+            <a class="btn btn-line" id="mail-btn" href="#" target="_blank" rel="noopener">Open in email</a>
+          </div>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="send-to">
+        <a id="link-house" href="https://www.house.gov/representatives/find-your-representative" target="_blank" rel="noopener">
+          <b>Find your representative</b>
+          <span>Enter your ZIP on house.gov, then use the “Contact” page on their site.</span>
+        </a>
+        <a id="link-senate" href="https://www.senate.gov/senators/senators-contact.htm" target="_blank" rel="noopener">
+          <b>Find your senators</b>
+          <span>Pick your state on senate.gov. You have two senators, so send it to both.</span>
+        </a>
+      </div>
+      <p class="muted" style="margin-top:1.25rem;font-size:.92rem" data-edit>Nothing you type here is saved or sent anywhere by this site. Your note only goes to Congress when you paste it into their form.</p>
+    </div>
+  </section>
+</section>
+
+<!-- ================= PAGE: GET HELP ================= -->
+<section class="page" id="page-help" data-page="help">
+  <div class="page-head">
+    <div class="wrap" data-edit>
+      <h1>Support for firefighters and first responders</h1>
+      <p>For responders, their families, and the departments that want to do better by them.</p>
+    </div>
+    <div class="trim trim--thin" aria-hidden="true"></div>
+  </div>
+
+  <section class="block" style="padding-top:2.5rem">
+    <div class="wrap">
+      <div class="now">
+        <div class="num">988</div>
+        <div data-edit>
+          <h2>If you need help right now</h2>
+          <p>Call or text <a href="tel:988"><b>988</b></a>, the Suicide &amp; Crisis Lifeline, any time. Prefer texting? Text <b>HOME</b> to <a href="sms:741741"><b>741741</b></a> for the Crisis Text Line. If someone is in immediate danger, call 911.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:3rem">
+        <article class="org">
+          <div data-edit>
+            <h3>Firefighter Behavioral Health Alliance</h3>
+            <p class="who">For fire, EMS, and dispatch organizations</p>
+          </div>
+          <div class="prose">
+            <p data-edit>Runs behavioral health workshops for departments, with an emphasis on suicide prevention and awareness, and tracks firefighter and EMS suicides so they aren’t forgotten. It also points responders and families toward help.</p>
+            <div class="btn-row"><a class="btn btn-red" id="link-ffbha" href="https://www.ffbha.org" target="_blank" rel="noopener">Visit ffbha.org</a></div>
+          </div>
+        </article>
+
+        <article class="org">
+          <div data-edit>
+            <h3>ResponderStrong</h3>
+            <p class="who">For responders, families, and agencies</p>
+          </div>
+          <div class="prose">
+            <p data-edit>Offers resources, programs, and support built specifically for the realities of emergency response work, including material for leaders building wellness programs in their own departments.</p>
+            <div class="btn-row"><a class="btn btn-red" id="link-responderstrong" href="https://www.responderstrong.org" target="_blank" rel="noopener">Visit responderstrong.org</a></div>
+          </div>
+        </article>
+
+        <article class="org">
+          <div data-edit>
+            <h3>Project AWARE</h3>
+            <p class="who">Mental health awareness, training, and connection to services</p>
+          </div>
+          <div class="prose">
+            <p data-edit>Connects communities to mental health training, awareness programs, and behavioral health services. Programs like it show how training people to spot warning signs, and knowing where to send someone, can change outcomes.</p>
+            <div class="btn-row"><a class="btn btn-red" id="link-aware" href="https://www.samhsa.gov/mental-health/children-and-families/school-health/project-aware" target="_blank" rel="noopener">Learn about Project AWARE</a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="note" style="margin-top:2.5rem" data-edit>
+        <b>Want these in your department?</b> Share this page with your fire chief, fire board, city council, or county officials and ask one question: what’s our plan for the next hard call?
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= PAGE: THE BILL ================= -->
+<section class="page" id="page-bill" data-page="bill">
+  <div class="page-head">
+    <div class="wrap" data-edit>
+      <h1>The Lifeline for First Responders Act</h1>
+      <p>A bipartisan bill introduced in both chambers of the 119th Congress in 2026. Below is a plain-language summary, followed by the full text as introduced in the House.</p>
+    </div>
+    <div class="trim trim--thin" aria-hidden="true"></div>
+  </div>
+
+  <section class="block" style="padding-top:2.5rem">
+    <div class="wrap">
+      <dl class="facts" data-edit>
+        <div><dt>House bill</dt><dd>H.R. 10116, introduced Aug. 17, 2026</dd></div>
+        <div><dt>House sponsors</dt><dd>Rep. Andrea Salinas (D-OR), with Reps. Gabe Evans (R-CO), Sharice Davids (D-KS), Tom Kean Jr. (R-NJ)</dd></div>
+        <div><dt>Senate bill</dt><dd>S. 4819, introduced June 17, 2026</dd></div>
+        <div><dt>Senate sponsors</dt><dd>Sen. Sheldon Whitehouse (D-RI) and Sen. Josh Hawley (R-MO)</dd></div>
+        <div><dt>Funding</dt><dd>$7.5 million a year, fiscal years 2028–2032</dd></div>
+        <div><dt>Status (Sept. 2026)</dt><dd>Introduced; House version referred to the Committee on Transportation and Infrastructure</dd></div>
+      </dl>
+
+      <div class="prose" data-edit>
+        <h2>What it does</h2>
+        <p style="margin-top:1rem">It creates an <b>EMS and First Responder Wellness Grant Program</b>, run by the Office of Emergency Medical Services at the National Highway Traffic Safety Administration. Fire services that provide emergency medical services, EMS agencies, and 911 dispatch centers could apply. Grants could pay for:</p>
+      </div>
+      <ol class="uses" data-edit>
+        <li>Evidence-based stress reduction and mental health services</li>
+        <li>Suicide prevention, intervention, and postvention services</li>
+        <li>Confidential counseling, peer support, and behavioral health services</li>
+        <li>Family support services for spouses and children</li>
+        <li>Outreach, stigma reduction, education, training, and technical assistance</li>
+      </ol>
+      <p class="prose muted" style="margin-top:1.25rem;font-size:.95rem" data-edit>Endorsed by groups including the International Association of Fire Fighters, the International Association of Fire Chiefs, the National Association of Emergency Medical Technicians, NAMI, and the American Foundation for Suicide Prevention.</p>
+
+      <div class="btn-row">
+        <a class="btn btn-red" href="#action" data-nav>Ask Congress to pass it</a>
+        <a class="btn btn-line" id="link-bill-house" href="https://www.congress.gov/bill/119th-congress/house-bill/10116" target="_blank" rel="noopener">H.R. 10116 on Congress.gov</a>
+        <a class="btn btn-line" id="link-bill-senate" href="https://www.congress.gov/bill/119th-congress/senate-bill/4819" target="_blank" rel="noopener">S. 4819 on Congress.gov</a>
+        <a class="btn btn-line" id="link-bill-pdf" href="https://www.govinfo.gov/content/pkg/BILLS-119hr10116ih/pdf/BILLS-119hr10116ih.pdf" target="_blank" rel="noopener">Official PDF</a>
+      </div>
+
+      <h2 style="margin-top:3.5rem">Full text</h2>
+      <p class="muted" style="margin-top:.6rem;font-size:.95rem">H.R. 10116, as introduced in the House (IH). Source: U.S. Government Publishing Office.</p>
+
+      <article class="billtext" aria-label="Full text of H.R. 10116">
+        <p class="cap">119th CONGRESS<br>2d Session</p>
+        <p class="num">H. R. 10116</p>
+        <p class="title">To amend title 23, United States Code, to establish an EMS and First Responder Wellness Grant Program, and for other purposes.</p>
+        <hr>
+        <p class="house">In the House of Representatives</p>
+        <p class="date">August 17, 2026</p>
+        <p>Ms. Salinas (for herself, Mr. Evans of Colorado, Ms. Davids of Kansas, and Mr. Kean) introduced the following bill; which was referred to the Committee on Transportation and Infrastructure</p>
+        <hr>
+        <p class="a-bill">A BILL</p>
+        <p class="title">To amend title 23, United States Code, to establish an EMS and First Responder Wellness Grant Program, and for other purposes.</p>
+
+        <p class="i1">Be it enacted by the Senate and House of Representatives of the United States of America in Congress assembled,</p>
+
+        <p class="sec">SECTION 1. SHORT TITLE.</p>
+        <p class="i1">This Act may be cited as the “Lifeline for First Responders Act”.</p>
+
+        <p class="sec">SEC. 2. EMS AND FIRST RESPONDER WELLNESS GRANT PROGRAM.</p>
+        <p class="i1">(a) <span style="font-variant:small-caps">In General.</span>—Chapter 4 of title 23, United States Code, is amended by inserting after section 408 the following:</p>
+        <p class="i1"><b>“Sec. 409. EMS and First Responder Wellness Grant Program</b></p>
+        <p class="i2">“(a) <span style="font-variant:small-caps">Establishment.</span>—The Secretary, acting through the Administrator of the National Highway Traffic Safety Administration, shall establish a grant program, to be known as the ‘EMS and First Responder Wellness Grant Program’ (referred to in this section as the ‘Program’), to support first responder mental health, stress reduction, family services, and suicide prevention.</p>
+        <p class="i2">“(b) <span style="font-variant:small-caps">Placement.</span>—The Program shall be carried out through the Office of Emergency Medical Services of the National Highway Traffic Safety Administration.</p>
+        <p class="i2">“(c) <span style="font-variant:small-caps">Eligible Entities.</span>—An entity eligible to receive a grant under the Program is—</p>
+        <p class="i3">“(1) a Federal, State, Tribal, or local fire service that supplies emergency medical services;</p>
+        <p class="i3">“(2) an emergency medical services agency; and</p>
+        <p class="i3">“(3) a dispatch center.</p>
+        <p class="i2">“(d) <span style="font-variant:small-caps">Authorized Uses.</span>—A grant provided under the Program may be used for—</p>
+        <p class="i3">“(1) evidence-based stress reduction and mental health services;</p>
+        <p class="i3">“(2) suicide prevention, intervention, and postvention services;</p>
+        <p class="i3">“(3) confidential counseling, peer support, and behavioral health services;</p>
+        <p class="i3">“(4) family support services for spouses and children; and</p>
+        <p class="i3">“(5) outreach, stigma reduction, education, training, and technical assistance.</p>
+        <p class="i2">“(e) <span style="font-variant:small-caps">Authorization of Appropriations.</span>—There is authorized to be appropriated to carry out the Program $7,500,000 for each of fiscal years 2028 through 2032.”.</p>
+        <p class="i1">(b) <span style="font-variant:small-caps">Clerical Amendment.</span>—The analysis for chapter 4 of title 23, United States Code, is amended by inserting after the item relating to section 408 the following:</p>
+        <p class="i2">“409. EMS and First Responder Wellness Grant Program.”.</p>
+      </article>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p data-edit>“Risk a Lot, to Save a Lot” · Persuasive speech by Joshua Bonyak · 2026–2027</p>
+    <p data-edit>A student project, not medical advice. In crisis? Call or text <a href="tel:988">988</a>.</p>
+  </div>
+</footer>
+
+<!-- Edit mode controls (only shown when opened from your computer, or with ?edit in the address) -->
+<button type="button" class="edit-launch" id="edit-launch">Edit page</button>
+<div class="edit-bar" role="region" aria-label="Edit mode">
+  <div class="wrap">
+    <p><b>Editing.</b> Click any text to change it. Click a link or button to change where it goes. When you’re done, save a copy and upload it in place of the old file.</p>
+    <button type="button" class="save" id="edit-save">Save a copy</button>
+    <button type="button" class="done" id="edit-done">Stop editing</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG: edit these values to update the letter to Congress.
+   ============================================================ */
+var CONFIG = {
+  houseBill: "H.R. 10116",
+  senateBill: "S. 4819",
+  emailSubject: "Please cosponsor the Lifeline for First Responders Act",
+  roles: {
+    constituent: "a constituent",
+    student: "a student in your district",
+    firefighter: "a firefighter",
+    ems: "an EMT/paramedic",
+    dispatch: "a 911 dispatcher",
+    family: "a family member of a first responder"
+  },
+  // Paragraphs of the letter. {bill} is replaced with the right bill number.
+  body: [
+    "I am asking you to cosponsor and vote for the Lifeline for First Responders Act ({bill}).",
+    "Firefighters, EMTs, and 911 dispatchers carry our worst moments home with them. Research shows firefighters are more than three times as likely as the general public to attempt suicide. A 2025 UTHealth Houston review found that 676 U.S. first responders died by suicide over three years, and only a quarter of them had ever received mental health or substance use treatment.",
+    "This bipartisan bill would create the first federal grant program dedicated to first responder mental health. It would help fire departments, EMS agencies, and dispatch centers pay for confidential counseling, peer support, suicide prevention, and support for spouses and children. Volunteer, rural, and underfunded departments that cannot build these programs on their own would benefit most."
+  ],
+  closing: "They risk their lives answering the call for us. Please answer the call for them by supporting the Lifeline for First Responders Act."
+};
+
+(function(){
+  "use strict";
+
+  /* ---------- page switching ---------- */
+  var pages = document.querySelectorAll(".page");
+  var navLinks = document.querySelectorAll(".tabs a");
+  function show(id){
+    var found = false;
+    pages.forEach(function(p){
+      var on = p.getAttribute("data-page") === id;
+      p.classList.toggle("is-active", on);
+      if(on) found = true;
+    });
+    if(!found){ return show("home"); }
+    navLinks.forEach(function(a){
+      if(a.getAttribute("href") === "#" + id){ a.setAttribute("aria-current","page"); }
+      else { a.removeAttribute("aria-current"); }
+    });
+    window.scrollTo(0,0);
+  }
+  function route(){ show((location.hash || "#home").slice(1)); }
+  window.addEventListener("hashchange", route);
+  route();
+
+  /* ---------- letter builder ---------- */
+  var $ = function(id){ return document.getElementById(id); };
+  var letter = $("letter"), statusEl = $("status"), rebuild = $("rebuild");
+  var edited = false;
+
+  function val(id){ return ($(id).value || "").trim(); }
+
+  function build(){
+    var house = $("f-chamber").value === "house";
+    var bill = house ? CONFIG.houseBill + " in the House, and its Senate companion " + CONFIG.senateBill
+                     : CONFIG.senateBill + " in the Senate, and its House companion " + CONFIG.houseBill;
+    var member = val("f-member");
+    var title = house ? "Representative" : "Senator";
+    var name = val("f-name") || "[Your name]";
+    var city = val("f-city") || "[City, State]";
+    var zip = val("f-zip") || "[ZIP]";
+    var role = CONFIG.roles[$("f-role").value] || "a constituent";
+    var story = val("f-story");
+
+    var lines = [];
+    lines.push("Dear " + title + (member ? " " + member : "") + ",");
+    lines.push("");
+    lines.push("My name is " + name + ", and I am writing to you as " + role + " from " + city + " " + zip + ".");
+    lines.push("");
+    CONFIG.body.forEach(function(p){ lines.push(p.replace("{bill}", bill)); lines.push(""); });
+    if(story){ lines.push(story); lines.push(""); }
+    lines.push(CONFIG.closing);
+    lines.push("");
+    lines.push("Sincerely,");
+    lines.push(name);
+    lines.push(city + " " + zip);
+    return lines.join("\n");
+  }
+
+  function refresh(force){
+    if(edited && !force) return;
+    letter.value = build();
+    edited = false;
+    rebuild.hidden = true;
+    updateMail();
+  }
+  function updateMail(){
+    $("mail-btn").href = "mailto:?subject=" + encodeURIComponent(CONFIG.emailSubject) +
+                         "&body=" + encodeURIComponent(letter.value);
+  }
+
+  ["f-chamber","f-member","f-name","f-city","f-zip","f-role","f-story"].forEach(function(id){
+    $(id).addEventListener("input", function(){ refresh(false); });
+    $(id).addEventListener("change", function(){ refresh(false); });
+  });
+  letter.addEventListener("input", function(){
+    edited = true; rebuild.hidden = false; updateMail();
+  });
+  rebuild.addEventListener("click", function(){ refresh(true); });
+
+  function say(msg, kind){
+    statusEl.textContent = msg;
+    statusEl.className = "status " + (kind || "");
+  }
+
+  $("copy-btn").addEventListener("click", function(){
+    var text = letter.value;
+    function fallback(){
+      letter.focus(); letter.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch(e) {}
+      if(ok){ say("Copied. Now paste it into your representative’s or senator’s contact form.", "ok"); }
+      else { say("This page can’t copy automatically here. The note is selected, so press Ctrl+C (or ⌘+C on a Mac).", "warn"); }
+    }
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(function(){
+        say("Copied. Now paste it into your representative’s or senator’s contact form.", "ok");
+      }, fallback);
+    } else { fallback(); }
+  });
+
+  refresh(true);
+
+  /* ---------- edit mode ---------- */
+  var canEdit = location.protocol === "file:" || /[?&]edit\b/.test(location.search);
+  var root = document.documentElement;
+  if(canEdit) root.classList.add("can-edit");
+
+  function editables(){ return document.querySelectorAll("[data-edit]"); }
+
+  function linkEditor(e){
+    if(!root.classList.contains("editing")) return;
+    var a = e.target.closest("a");
+    if(!a || a.hasAttribute("data-nav") || a.closest(".tabs")) return;
+    e.preventDefault();
+    var next = window.prompt("Where should this link go?", a.getAttribute("href"));
+    if(next !== null && next.trim()) a.setAttribute("href", next.trim());
+  }
+
+  function startEdit(){
+    root.classList.add("editing");
+    editables().forEach(function(el){ el.setAttribute("contenteditable","true"); });
+    document.addEventListener("click", linkEditor, true);
+  }
+  function stopEdit(){
+    root.classList.remove("editing");
+    editables().forEach(function(el){ el.removeAttribute("contenteditable"); });
+    document.removeEventListener("click", linkEditor, true);
+  }
+  function saveCopy(){
+    stopEdit();
+    var clone = root.cloneNode(true);
+    clone.classList.remove("can-edit","editing");
+    clone.querySelectorAll(".page").forEach(function(p){ p.classList.remove("is-active"); });
+    clone.querySelectorAll("[aria-current]").forEach(function(a){ a.removeAttribute("aria-current"); });
+    var t = clone.querySelector("#letter"); if(t) t.textContent = "";
+    var html = "<!DOCTYPE html>\n" + clone.outerHTML;
+    var blob = new Blob([html], {type:"text/html"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "index.html";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+    startEdit();
+  }
+  $("edit-launch").addEventListener("click", startEdit);
+  $("edit-done").addEventListener("click", stopEdit);
+  $("edit-save").addEventListener("click", saveCopy);
+})();
+</script>
+</body>
+</html>
